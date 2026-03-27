@@ -1,0 +1,39 @@
+version: "2024-12"
+provider: chatgpt
+selectors:
+  conversation_list:
+    - "nav[aria-label='Chat history'] ol li"
+    - "nav ol li"
+    - "[data-testid='history-item']"
+  conversation_link:
+    - "nav ol li a"
+    - "a[href*='/c/']"
+  message_user:
+    - "[data-message-author-role='user'] .whitespace-pre-wrap"
+    - "[data-message-author-role='user']"
+    - ".user-message"
+  message_assistant:
+    - "[data-message-author-role='assistant'] .markdown"
+    - "[data-message-author-role='assistant']"
+    - ".assistant-message"
+  code_block:
+    - "pre code"
+    - "code.hljs"
+  conversation_title:
+    - "[data-testid='conversation-title']"
+    - "title"
+    - "h1"
+  model_name:
+    - "[data-testid='model-switcher-dropdown-button']"
+    - "button[aria-label*='model']"
+  login_indicator:
+    - "[data-testid='user-menu-button']"
+    - "button[aria-label*='account' i]"
+    - "img[alt*='User' i]"
+  challenge_indicator:
+    - "#challenge-form"
+    - "iframe[src*='challenges']"
+    - "[data-testid='cf-turnstile']"
+  sidebar_toggle:
+    - "[data-testid='navigation-toggle']"
+    - "button[aria-label*='sidebar' i]"

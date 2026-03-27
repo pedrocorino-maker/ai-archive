@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python List Sorting - ChatGPT</title>
+</head>
+<body>
+  <!-- Sidebar navigation with chat history -->
+  <nav aria-label="Chat history">
+    <ol>
+      <li>
+        <a href="/c/abc001chatgpt" data-testid="history-item">
+          Python List Sorting
+        </a>
+      </li>
+      <li>
+        <a href="/c/abc002chatgpt" data-testid="history-item">
+          JavaScript Promises
+        </a>
+      </li>
+    </ol>
+  </nav>
+
+  <!-- User account indicator (login detected via this element) -->
+  <div id="__next">
+    <button data-testid="user-menu-button" aria-label="Open user account menu">
+      <img alt="User avatar" src="https://cdn.openai.com/avatars/sample.png" />
+    </button>
+
+    <!-- Model selector -->
+    <button data-testid="model-switcher-dropdown-button" aria-label="Select model: GPT-4o">
+      GPT-4o
+    </button>
+
+    <!-- Conversation header -->
+    <main>
+      <h1 data-testid="conversation-title">Python List Sorting</h1>
+
+      <!-- Turn 1: User message -->
+      <article data-testid="conversation-turn" data-message-author-role="user">
+        <div class="whitespace-pre-wrap">
+          How do I sort a list of dictionaries by a specific key in Python?
+        </div>
+      </article>
+
+      <!-- Turn 2: Assistant message with code block -->
+      <article data-testid="conversation-turn" data-message-author-role="assistant">
+        <div class="markdown prose w-full break-words">
+          <p>You can sort a list of dictionaries by a specific key using the <code>sorted()</code> function with a <code>key</code> argument:</p>
+          <pre>
+            <code class="language-python">people = [
+    {"name": "Alice", "age": 30},
+    {"name": "Bob", "age": 25},
+    {"name": "Charlie", "age": 35},
+]
+
+# Sort by age (ascending)
+sorted_people = sorted(people, key=lambda x: x["age"])
+print(sorted_people)
+
+# Sort by age (descending)
+sorted_desc = sorted(people, key=lambda x: x["age"], reverse=True)
+</code>
+          </pre>
+          <p>The <code>lambda</code> function extracts the value you want to sort by. In conclusion, <code>sorted()</code> returns a new list without modifying the original.</p>
+        </div>
+      </article>
+
+      <!-- Turn 3: User follow-up -->
+      <article data-testid="conversation-turn" data-message-author-role="user">
+        <div class="whitespace-pre-wrap">
+          Can I sort by multiple keys at once?
+        </div>
+      </article>
+
+      <!-- Turn 4: Assistant follow-up with code -->
+      <article data-testid="conversation-turn" data-message-author-role="assistant">
+        <div class="markdown prose w-full break-words">
+          <p>Yes! You can sort by multiple keys using a tuple in the key function:</p>
+          <pre>
+            <code class="language-python">data = [
+    {"name": "Alice", "age": 30, "score": 95},
+    {"name": "Bob", "age": 30, "score": 88},
+    {"name": "Charlie", "age": 25, "score": 92},
+]
+
+# Sort by age first, then by score descending
+result = sorted(data, key=lambda x: (x["age"], -x["score"]))
+print(result)
+</code>
+          </pre>
+          <p>Therefore, using tuples lets you express complex sort orders concisely.</p>
+        </div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

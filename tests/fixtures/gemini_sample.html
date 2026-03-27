@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Decorators - Gemini</title>
+</head>
+<body>
+  <!-- Sidebar with conversation list -->
+  <nav class="sidenav">
+    <div class="conversation-list">
+      <bard-sidenav-item
+        data-conversation-id="gemini_conv_001"
+        aria-selected="true"
+        class="mat-list-item active"
+      >
+        <span class="conversation-title">Python Decorators</span>
+        <a href="/app/gemini_conv_001">Python Decorators</a>
+      </bard-sidenav-item>
+      <bard-sidenav-item
+        data-conversation-id="gemini_conv_002"
+        class="mat-list-item"
+      >
+        <span class="conversation-title">SQL Query Optimization</span>
+        <a href="/app/gemini_conv_002">SQL Query Optimization</a>
+      </bard-sidenav-item>
+    </div>
+  </nav>
+
+  <!-- Google account indicator (login detected via this element) -->
+  <header>
+    <a
+      aria-label="Google Account: user@example.com"
+      href="https://myaccount.google.com"
+      class="gb_A"
+    >
+      <img
+        alt="profile picture"
+        src="https://lh3.googleusercontent.com/photo.jpg"
+        width="32"
+        height="32"
+      />
+    </a>
+  </header>
+
+  <!-- Main conversation content -->
+  <main class="conversation-container">
+    <h1 class="conversation-title">Python Decorators</h1>
+
+    <div class="conversation-content">
+
+      <!-- User message 1 -->
+      <user-query class="human-turn">
+        <div class="query-text" data-role="user">
+          <p>Can you explain how Python decorators work with a simple example?</p>
+        </div>
+      </user-query>
+
+      <!-- Model response 1 with code block -->
+      <model-response class="ai-turn" data-role="model">
+        <div class="response-content">
+          <p>Decorators in Python are functions that modify other functions. They use the <code>@</code> syntax and are applied before the function definition.</p>
+          <div class="code-block">
+            <pre>
+              <code class="language-python">def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        print("Before function call")
+        result = func(*args, **kwargs)
+        print("After function call")
+        return result
+    return wrapper
+
+@my_decorator
+def say_hello(name):
+    print(f"Hello, {name}!")
+
+say_hello("World")
+# Output:
+# Before function call
+# Hello, World!
+# After function call
+</code>
+            </pre>
+          </div>
+          <p>Therefore, the <code>@my_decorator</code> syntax is equivalent to <code>say_hello = my_decorator(say_hello)</code>.</p>
+        </div>
+      </model-response>
+
+      <!-- User message 2 -->
+      <user-query class="human-turn">
+        <div class="query-text" data-role="user">
+          <p>How do I pass arguments to a decorator?</p>
+        </div>
+      </user-query>
+
+      <!-- Model response 2 with code block -->
+      <model-response class="ai-turn" data-role="model">
+        <div class="response-content">
+          <p>To pass arguments to a decorator, you need to add an extra layer of nesting:</p>
+          <div class="code-block">
+            <pre>
+              <code class="language-python">def repeat(times):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            for _ in range(times):
+                result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator
+
+@repeat(times=3)
+def greet(name):
+    print(f"Hello, {name}!")
+
+greet("Alice")
+# Prints "Hello, Alice!" three times
+</code>
+            </pre>
+          </div>
+          <p>In summary, the outer function (<code>repeat</code>) takes the decorator arguments and returns the actual decorator.</p>
+        </div>
+      </model-response>
+
+    </div>
+  </main>
+</body>
+</html>

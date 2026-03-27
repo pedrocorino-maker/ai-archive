@@ -1,0 +1,36 @@
+version: "2024-12"
+provider: gemini
+selectors:
+  conversation_list:
+    - "conversation-list-item"
+    - "[data-conversation-id]"
+    - ".mat-list-item"
+    - "bard-sidenav-item"
+  conversation_link:
+    - "a[href*='/app/']"
+    - "[data-conversation-id] a"
+  message_user:
+    - ".user-message p"
+    - "user-query .query-text"
+    - "[data-role='user']"
+    - ".human-turn"
+  message_assistant:
+    - "model-response .response-content"
+    - ".model-response"
+    - "[data-role='model']"
+    - ".ai-turn message-content"
+  code_block:
+    - "pre code"
+    - ".code-block code"
+  conversation_title:
+    - ".conversation-title"
+    - "bard-sidenav-item[aria-selected='true'] span"
+    - "h1"
+  login_indicator:
+    - "a[aria-label*='Google Account' i]"
+    - ".gb_A"
+    - "img[alt*='profile' i]"
+  challenge_indicator:
+    - "#captcha"
+    - "[data-action='verify']"
+    - "iframe[src*='recaptcha']"

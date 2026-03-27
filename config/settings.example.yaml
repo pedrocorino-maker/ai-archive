@@ -1,0 +1,65 @@
+app:
+  env: local
+  data_dir: ./data
+  db_file: ./data/state/archive.db
+
+auth:
+  mode: attach_cdp  # attach_cdp | managed_profile | storage_state_only
+  cdp_url: "http://127.0.0.1:9222"
+  chrome_user_data_dir: ./data/state/chrome_profile
+  chrome_channel: chrome
+  storage_state_path: ./data/state/storage_state.json
+  interactive: true
+  login_timeout_seconds: 300
+
+providers:
+  chatgpt:
+    enabled: true
+    base_url: "https://chatgpt.com"
+    max_conversations: null
+    include_archived: true
+  gemini:
+    enabled: true
+    base_url: "https://gemini.google.com"
+    max_conversations: null
+
+crawl:
+  incremental: true
+  slow_mo_ms: 150
+  jitter_min_ms: 600
+  jitter_max_ms: 1400
+  scroll_attempts: 25
+  scroll_wait_ms: 1500
+  page_timeout_ms: 30000
+  retry_attempts: 3
+  screenshot_on_error: true
+
+clustering:
+  embedding_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  similarity_threshold: 0.82
+  min_cluster_size: 2
+  algorithm: hdbscan  # hdbscan | agglomerative | dbscan
+
+curation:
+  llm_provider: none  # none | anthropic | openai | gemini | ollama
+  llm_model: ""
+  llm_api_key: ""
+  max_snippets_per_topic: 20
+
+drive:
+  enabled: false
+  credentials_json: ./credentials.json
+  token_json: ./token.json
+  raw_folder_id: ""
+  curated_folder_id: ""
+  sync_on_crawl: false
+  overwrite_if_changed: true
+
+logging:
+  level: INFO
+  json_logs: true
+  human_logs: true
+
+archive:
+  keep_deleted_tombstones: true
+  max_snapshot_versions: 10
